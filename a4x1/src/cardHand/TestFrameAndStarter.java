@@ -85,7 +85,7 @@ public class TestFrameAndStarter {
         Hand someHand;                                                          // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         Hand anotherHand;                                                       // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         
-        /*
+        
         
         // Zunächst einfache Tests----------------------------------------------
         
@@ -316,7 +316,7 @@ public class TestFrameAndStarter {
         System.out.printf( "-------------------------------------------------------------------------------\n" );
         System.out.printf( "OPTIONAL TESTs  from Student(s)\n" );
         System.out.printf( "\n\n" );
-        */                                                                      // <- muss weg
+                                                                              // <- muss weg
         //###
         //###   Oberhalb dieser Position sind KEINE Änderungen am Code erlaubt.
         //###   Bei der Abgabe müssen die oberen Zeilen im Original-Zustand sein.
@@ -355,15 +355,33 @@ public class TestFrameAndStarter {
         // Fügen Sie hier Ihre zusätzlichen Tests ein
         // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
         
+        
+        /*
         someHand = new Hand( CK );
         
-        System.out.println(someHand.firstCardHand[0]);  //Zugriff über variable.Feldvariable[0]
+        System.out.println(someHand.firstCardHand.length);
+
+        int i=0;
+        while (i<someHand.firstCardHand.length) {
+        System.out.println(someHand.firstCardHand[i]);
+        i++;
+        }
         
-//        someHand.add( C7, CT, C2, CQ, C5 );
+        someHand.add( C7, CT, C2, CQ, C5 );
+        //System.out.println(someHand.firstCardHand[0]);
         
-        System.out.println(someHand.firstCardHand[0]);
-//        System.out.println(someHand.firstCardHand[0]);
+        System.out.println(someHand.firstCardHand.length);
         
+        i=0;
+        while (i<someHand.firstCardHand.length) {
+        System.out.println(someHand.firstCardHand[i]);
+        i++;
+        }
+        
+        System.out.println("IST KARTE GLEICH?");
+        System.out.println(someHand.isSuited(someHand.firstCardHand));
+
+        */
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         System.out.printf( "\n\n\n" );
         System.out.printf( "THE END" );
