@@ -81,11 +81,11 @@ public class TestFrameAndStarter {
         // haben,  müssen die Blockkommentarzeichen entfernt werden.
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         
-        /*                                                                      // <- muss weg
+                                                                              // <- muss weg
         Hand someHand;                                                          // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         Hand anotherHand;                                                       // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         
-        
+        /*
         
         // Zunächst einfache Tests----------------------------------------------
         
@@ -355,7 +355,14 @@ public class TestFrameAndStarter {
         // Fügen Sie hier Ihre zusätzlichen Tests ein
         // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
         
+        someHand = new Hand( CK );
         
+        System.out.println(someHand.firstCardHand[0]);  //Zugriff über variable.Feldvariable[0]
+        
+//        someHand.add( C7, CT, C2, CQ, C5 );
+        
+        System.out.println(someHand.firstCardHand[0]);
+//        System.out.println(someHand.firstCardHand[0]);
         
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         System.out.printf( "\n\n\n" );
@@ -367,7 +374,7 @@ public class TestFrameAndStarter {
     
     // Hilfsmethode als Angebot
     public void printlnCards( final Card... cards ){
-        System.out.println( Arrays.toString( cards ) );
+ //       System.out.println( Arrays.toString( cards ) );
     }//method()
     
 }//class
