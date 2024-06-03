@@ -13,7 +13,8 @@ public class Hand {
     Card[] firstCardHand; //attribute cardHand
     //Card[] secondCardHand; //attribute cardHand
 
-
+//TODO:Fehler beheben. Aber wie?
+    
     //CONSTRUCTOR
     //constructor with varargs to be more flexible with given cards. 
     Hand(Card... givenCards) { 
