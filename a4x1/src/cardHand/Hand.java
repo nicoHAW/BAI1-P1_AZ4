@@ -19,6 +19,12 @@ public class Hand {
     //constructor with varargs to be more flexible with given cards. 
     Hand(Card... givenCards) { 
         assert givenCards != null : "leeres Array";
+
+        int assertIndex = 0;
+        while (assertIndex<givenCards.length) {
+            assert givenCards[assertIndex] != null : "leeres Array";
+            assertIndex++; } 
+
         this.firstCardHand = givenCards;
 
 
@@ -29,7 +35,14 @@ public class Hand {
 
     //Method to add more Cards
     public void add(Card... moreGivenCards) {
+        assert moreGivenCards != null : "leeres Array";
 
+        int assertIndex = 0;
+        while (assertIndex<moreGivenCards.length) {
+            assert moreGivenCards[assertIndex] != null : "leeres Array";
+            assertIndex++; }
+        
+        
         //creates an total cards index
         int numberCardsTotal = moreGivenCards.length + this.firstCardHand.length;
 
@@ -54,7 +67,14 @@ public class Hand {
     } // method add
 
     public void add(Hand givenHand) {
+        assert givenHand != null : "leeres Array";
 
+        int assertIndex = 0;
+        while (assertIndex<givenHand.firstCardHand.length) {
+            assert givenHand.firstCardHand[assertIndex] != null : "leeres Array";
+            assertIndex++; }
+        
+        
         //creates an total cards index
         int numberCardsTotal = givenHand.firstCardHand.length + this.firstCardHand.length;
 
@@ -80,15 +100,9 @@ public class Hand {
 
     //Method: compare color of Cards
     boolean isSuited( ) {            
-        assert this.firstCardHand != null : "leeres Array";
         
-        int assertIndex = 0;
-        while (assertIndex<this.firstCardHand.length) {
-            assert this.firstCardHand[assertIndex] != null : "leeres Array";
-            assertIndex++; } 
-
         boolean sameSuite = true;
-        
+
         if (this.firstCardHand.length != 0) {
             Card tempFirstCard = this.firstCardHand[0];
             Suit tempFirstCardSuit = tempFirstCard.getSuit();
