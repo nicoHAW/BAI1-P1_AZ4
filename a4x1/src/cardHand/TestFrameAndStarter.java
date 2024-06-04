@@ -81,11 +81,11 @@ public class TestFrameAndStarter {
         // haben,  müssen die Blockkommentarzeichen entfernt werden.
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         
-                                                                              // <- muss weg
+                                                                             // <- muss weg
         Hand someHand;                                                          // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         Hand anotherHand;                                                       // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         
-        
+         
         
         // Zunächst einfache Tests----------------------------------------------
         
