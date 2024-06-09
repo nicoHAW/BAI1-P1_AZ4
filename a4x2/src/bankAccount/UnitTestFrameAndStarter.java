@@ -41,7 +41,7 @@ public class UnitTestFrameAndStarter {
     
     
     
-    /*
+    
     @BeforeAll
     public static void init(){
         System.out.printf( "TestFrame information\n" );
@@ -162,6 +162,6 @@ public class UnitTestFrameAndStarter {
         System.out.printf( "THE END" );
         System.out.flush();
     }//method()
-    */
+    
     
 }//class

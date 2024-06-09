@@ -9,98 +9,95 @@ import cards.Card.*;
 
 //Class Hand
 public class Hand {
-    //variables
-    Card[] firstCardHand; //attribute cardHand
-    //Card[] secondCardHand; //attribute cardHand
 
-    //TODO:Fehler beheben. Aber wie?
+    //VARIABLES
+    Card[] firstCardHand;
 
+    
+    
     //CONSTRUCTOR
-    //constructor with varargs to be more flexible with given cards. 
     Hand(Card... givenCards) { 
-        assert givenCards != null : "leeres Array";
+        boolean validateCards = validateCards(givenCards); //validate if given Cards
 
-        int assertIndex = 0;
-        while (assertIndex<givenCards.length) {
-            assert givenCards[assertIndex] != null : "leeres Array";
-            assertIndex++; } 
-
-        this.firstCardHand = givenCards;
-
-
+        if (validateCards) { //creates Hand if Cards are validated.
+            this.firstCardHand = givenCards;
+        } //if
     } // constructor Hand
 
+    
 
     //METHODS
 
-    //Method to add more Cards
-    public void add(Card... moreGivenCards) {
-        assert moreGivenCards != null : "leeres Array";
+    //method: asserts
+    private boolean validateCards(Card... checkCards) {
+
+        assert checkCards != null : "leeres Array"; //check for totoal array
+
+        for (int assertIndex = 0; assertIndex<checkCards.length; assertIndex++) { //check for each row
+            assert checkCards[assertIndex] != null : "leeres Array";
+        } // for
+
+        return true;
+    } //method validateCards
+    
+    private boolean validateHand(Hand checkHand) {
+
+        assert checkHand != null : "leeres Array";
 
         int assertIndex = 0;
-        while (assertIndex<moreGivenCards.length) {
-            assert moreGivenCards[assertIndex] != null : "leeres Array";
-            assertIndex++; }
+        while (assertIndex<checkHand.firstCardHand.length) {
+            assert checkHand.firstCardHand[assertIndex] != null : "leeres Array";
+            assertIndex++;
+            } //while
+        return true;
         
+    } //method validateCards
+
+    
+
+    //method: add more cards to firstHand
+    public void add(Card... moreGivenCards) {
+        boolean cardsToBeValidated = validateCards(moreGivenCards); //validate if given Cards
         
-        //creates an total cards index
-        int numberCardsTotal = moreGivenCards.length + this.firstCardHand.length;
-
-        //creates new array with lenght of new total cards.
-        Card[] tempCardsHand = new Card[numberCardsTotal];
-
-        //place card from first Hand
-        int i = 0;
-        while (i < firstCardHand.length) {
-            tempCardsHand[i]=this.firstCardHand[i];
-            i++;
-        } //while 
-
-        //places new given Cards behind first Hand
-        i = 0;
-        while (i < moreGivenCards.length) {
-            tempCardsHand[this.firstCardHand.length+i] = moreGivenCards[i];
-            i++;
-        } //while
-
-        this.firstCardHand = tempCardsHand;
+        if (cardsToBeValidated) {
+            sortCards(moreGivenCards);
+        }
+        
     } // method add
 
     public void add(Hand givenHand) {
-        assert givenHand != null : "leeres Array";
+        boolean HandToBeValidated = validateHand(givenHand); //validate if given Cards
 
-        int assertIndex = 0;
-        while (assertIndex<givenHand.firstCardHand.length) {
-            assert givenHand.firstCardHand[assertIndex] != null : "leeres Array";
-            assertIndex++; }
+if (HandToBeValidated) {
+        add(givenHand.firstCardHand);
+        } //if
         
-        
-        //creates an total cards index
-        int numberCardsTotal = givenHand.firstCardHand.length + this.firstCardHand.length;
-
-        //creates new array with lenght of new total cards.
-        Card[] secondCardHand = new Card[numberCardsTotal];
-
-        //place card from first Hand
-        int i = 0;
-        while (i < this.firstCardHand.length) {
-            secondCardHand[i]=this.firstCardHand[i];
-            i++;
-        } //while 
-
-        //places new given Cards behind first Hand
-        i = 0;
-        while (i < givenHand.firstCardHand.length) {
-            secondCardHand[this.firstCardHand.length+i] = givenHand.firstCardHand[i];
-            i++;
-        } //while
     }
 
+private void sortCards(Card... cardsToSort) {
+  
+  //creates an total cards index
+    int numberCardsTotal = cardsToSort.length + this.firstCardHand.length;
+    
+ //creates new array with lenght of new total cards.
+    Card[] tempCardHand = new Card[numberCardsTotal];
 
+    //place card from first Hand
+    for (int i = 0; i < this.firstCardHand.length; i++) {
+        tempCardHand[i]=this.firstCardHand[i];
+    } //for
+
+    //places new given Cards behind first Hand
+    for (int i=0; i < cardsToSort.length; i++) {
+        tempCardHand[this.firstCardHand.length+i] = cardsToSort[i];
+    } //for
+    
+    this.firstCardHand = tempCardHand;
+}
 
     //Method: compare color of Cards
     boolean isSuited( ) {            
-        
+
         boolean sameSuite = true;
 
         if (this.firstCardHand.length != 0) {
@@ -115,7 +112,8 @@ public class Hand {
                 sameSuite = nextCardSuit.equals(tempFirstCardSuit);
                 i++;
             }
-        } // while  
+        } // if
+        
         return sameSuite;
     } //method isSuited
 
