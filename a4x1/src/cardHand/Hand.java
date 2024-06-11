@@ -13,8 +13,8 @@ public class Hand {
     //VARIABLES
     Card[] firstCardHand;
 
-    
-    
+
+
     //CONSTRUCTOR
     Hand(Card... givenCards) { 
         boolean validateCards = validateCards(givenCards); //validate if given Cards
@@ -24,7 +24,7 @@ public class Hand {
         } //if
     } // constructor Hand
 
-    
+
 
     //METHODS
 
@@ -39,7 +39,7 @@ public class Hand {
 
         return true;
     } //method validateCards
-    
+
     private boolean validateHand(Hand checkHand) {
 
         assert checkHand != null : "leeres Array";
@@ -48,52 +48,52 @@ public class Hand {
         while (assertIndex<checkHand.firstCardHand.length) {
             assert checkHand.firstCardHand[assertIndex] != null : "leeres Array";
             assertIndex++;
-            } //while
+        } //while
         return true;
-        
+
     } //method validateCards
 
-    
+
 
     //method: add more cards to firstHand
     public void add(Card... moreGivenCards) {
         boolean cardsToBeValidated = validateCards(moreGivenCards); //validate if given Cards
-        
+
         if (cardsToBeValidated) {
             sortCards(moreGivenCards);
         }
-        
+
     } // method add
 
     public void add(Hand givenHand) {
         boolean HandToBeValidated = validateHand(givenHand); //validate if given Cards
 
-if (HandToBeValidated) {
-        add(givenHand.firstCardHand);
+        if (HandToBeValidated) {
+            add(givenHand.firstCardHand);
         } //if
-        
+
     }
 
-private void sortCards(Card... cardsToSort) {
-  
-  //creates an total cards index
-    int numberCardsTotal = cardsToSort.length + this.firstCardHand.length;
-    
- //creates new array with lenght of new total cards.
-    Card[] tempCardHand = new Card[numberCardsTotal];
+    private void sortCards(Card... cardsToSort) {
 
-    //place card from first Hand
-    for (int i = 0; i < this.firstCardHand.length; i++) {
-        tempCardHand[i]=this.firstCardHand[i];
-    } //for
+        //creates an total cards index
+        int numberCardsTotal = cardsToSort.length + this.firstCardHand.length;
 
-    //places new given Cards behind first Hand
-    for (int i=0; i < cardsToSort.length; i++) {
-        tempCardHand[this.firstCardHand.length+i] = cardsToSort[i];
-    } //for
-    
-    this.firstCardHand = tempCardHand;
-}
+        //creates new array with lenght of new total cards.
+        Card[] tempCardHand = new Card[numberCardsTotal];
+
+        //place card from first Hand
+        for (int i = 0; i < this.firstCardHand.length; i++) {
+            tempCardHand[i]=this.firstCardHand[i];
+        } //for
+
+        //places new given Cards behind first Hand
+        for (int i=0; i < cardsToSort.length; i++) {
+            tempCardHand[this.firstCardHand.length+i] = cardsToSort[i];
+        } //for
+
+        this.firstCardHand = tempCardHand;
+    }
 
     //Method: compare color of Cards
     boolean isSuited( ) {            
@@ -113,7 +113,7 @@ private void sortCards(Card... cardsToSort) {
                 i++;
             }
         } // if
-        
+
         return sameSuite;
     } //method isSuited
 

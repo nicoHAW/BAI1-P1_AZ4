@@ -192,7 +192,8 @@ public class TestFrameAndStarter {
         // Fügen Sie hier Ihre zusätzlichen Tests ein
         // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
         
-        
+        PalindromeFinder palindrome = new PalindromeFinder("Palindrome?");
+        System.out.println(palindrome.getText());
         
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }//method()
