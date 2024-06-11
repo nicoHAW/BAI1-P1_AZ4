@@ -4,21 +4,19 @@ package bankAccount;
 public class CurrentAccount extends BankAccount {
 
     //VARIABLES    
-    //    private String bankId;
-    //    private long balance;
     private int standardFee;
 
 
-    //CONSTURUCTOR
+    //CONSTRUCTOR
     public CurrentAccount(String bankId, long balance, int standardFee) {
         super(bankId, balance);
         this.standardFee = standardFee;
-    } //constuctor
+    } //constructor
 
     public CurrentAccount(String bankId, int standardFee) {
         super(bankId);
         this.standardFee = standardFee;
-    } // constuctor
+    } // constructor
 
 
     //METHODS
@@ -33,7 +31,7 @@ public class CurrentAccount extends BankAccount {
     //STANDARD METHODS
     @Override
     public String toString() {
-        return String.format("[BankAccount : BankID = %s \n Balance = %d \n StandardFee = %d]", this.bankId, this.balance, this.standardFee);
+        return String.format("[CurrentAccount : BankID = %s \n Balance = %d \n StandardFee = %d]", this.bankId, this.balance, this.standardFee);
     }
 
     public long getFee() {

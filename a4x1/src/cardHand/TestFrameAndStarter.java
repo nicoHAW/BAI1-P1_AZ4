@@ -116,7 +116,7 @@ public class TestFrameAndStarter {
         System.out.printf(
             "%s  %s\n",
             Arrays.toString( anotherHand.getHandCards() ),
-            someHand.isSuited()  ?  "SUITED"  :  "NON suited"
+            anotherHand.isSuited()  ?  "SUITED"  :  "NON suited"
         );
         System.out.printf( "\n\n" );
         

@@ -4,8 +4,6 @@ package bankAccount;
 public class SavingsAccount extends BankAccount {
 
     //VARIABLES    
-    //    private String bankId;
-    //    private long balance;
     private int rates;
 
 
@@ -29,7 +27,7 @@ public class SavingsAccount extends BankAccount {
     //STANDARD METHODS
     @Override
     public String toString() {
-        return String.format("[BankAccount : BankID = %s \n Balance = %d \n ates = %d]", this.bankId, this.balance, this.rates);
+        return String.format("[SavingsAccount : BankID = %s \n Balance = %d \n ates = %d]", this.bankId, this.balance, this.rates);
     }
 
     public long getInterestRate() {
