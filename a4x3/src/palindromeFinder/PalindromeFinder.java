@@ -37,7 +37,13 @@ public class PalindromeFinder {
             
           //TODO noch mal richtig machen. 
             
-            if (String.toLowerCase(this.checkPalindrome.charAt(i))) == String.toLowerCase(this.checkPalindrome.charAt(this.checkPalindrome.length()-1)) {
+            // Durchlaufe String - vergleiche ersten mit letzten Buchstaben, dann einer weniger. 
+            // Wenn du ein gleiches paar findest, prüfe auch die nächsten.
+            // Wenn gleich, dann erstelle Substring und prüfe alle. 
+            
+            
+            
+            if () {
                
                 // If letters same, create substring then check if palindrome
                 String checkString = this.checkPalindrome.subString(left, right);
