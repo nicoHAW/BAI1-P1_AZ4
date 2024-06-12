@@ -76,7 +76,7 @@ public class TestFrameAndStarter {
         // haben,  müssen die Blockkommentarzeichen entfernt werden.
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         
-        /*                                                                      // <- muss weg
+                                                                              // <- muss weg
         String givenText = "Werner sagte: \"Es stellen sich neben dem Reliefpfeiler auf: Otto neben Otto und Ede neben Ede.\"";
         PalindromeFinder palindromeFinder = new PalindromeFinder( givenText );
         System.out.printf( "Der folgende Text\n" );
@@ -153,7 +153,7 @@ public class TestFrameAndStarter {
         System.out.printf( "-------------------------------------------------------------------------------\n" );
         System.out.printf( "OPTIONAL TESTs  from Student(s)\n" );
         System.out.printf( "\n\n" );
-        */                                                                      // <- muss weg
+                                                                              // <- muss weg
         //###
         //###   Oberhalb dieser Position sind KEINE Änderungen am Code erlaubt.
         //###   Bei der Abgabe müssen die oberen Zeilen im Original-Zustand sein.
@@ -191,14 +191,14 @@ public class TestFrameAndStarter {
         //
         // Fügen Sie hier Ihre zusätzlichen Tests ein
         // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
-        
-        PalindromeFinder palindrome = new PalindromeFinder("a otto b");
+    /*    
+        PalindromeFinder palindrome = new PalindromeFinder("wirklich rentner und hab ich das wirklich?");
         System.out.printf("Given Sentence is %s\n", palindrome.getText());
         
         String isPalindrome = palindrome.getLongestPalindrom();
                 
                 System.out.printf("Dein Palindrom %s", isPalindrome);
-        
+        */
               
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }//method()

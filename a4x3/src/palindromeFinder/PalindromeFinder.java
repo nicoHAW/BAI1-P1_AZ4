@@ -6,7 +6,6 @@ public class PalindromeFinder {
     private String checkPalindrome;
 
 
-
     //---------- CONSTRUCTOR ----------
     // Constructor with parameter
     public PalindromeFinder(String givenWord) {
@@ -17,68 +16,70 @@ public class PalindromeFinder {
         if (valid) {
             this.checkPalindrome = givenWord;
         } //fi
+
     } //constructor PalindromeFinder
 
     // Constructor without parameter
     public PalindromeFinder() {
-        this("demoomed");
+        this("This is your default not palindrome");
     }
 
 
     //---------- METHODS ----------
-    public String getLongestPalindrom() {
+    public String getLongestPalindrome() {
+        String yourPalindrome = "";
+        String currentPalindrome = "";
 
-        int left = 0;
-        int right = this.checkPalindrome.length()-1;
-        boolean isPalindrome = false;
-        String foundPalindrome ="";
+        int outerRight = this.checkPalindrome.length()-1;
+        boolean isPalindrome=false;
 
-        //Durchlaufe Buchstaben
-        for (int i=0; i<this.checkPalindrome.length()-1;i++) {
+        for (int i = 0; i < outerRight; i++) {
+     /*       isPalindrome = validatePalidrome(this.checkPalindrome.substring(i,outerRight+1));
 
-            left = i;
-            right = this.checkPalindrome.length()-1-i;
+            if (isPalindrome) {
+                currentPalindrome = this.checkPalindrome.substring(i,outerRight+1);
+                
+                if (currentPalindrome.length() > yourPalindrome.length()) {
+                    yourPalindrome = currentPalindrome;
+                }
+            }
+*/
+            int innerRight = this.checkPalindrome.length()-1;
+            for (int j = i; j < innerRight; innerRight--) {
 
-            for (int j=0; i<this.checkPalindrome.length()-1;j++) {
+                if ((Character.toLowerCase(this.checkPalindrome.charAt(j)) == Character.toLowerCase(this.checkPalindrome.charAt(innerRight))) && (Character.toLowerCase(this.checkPalindrome.charAt(j+1)) == Character.toLowerCase(this.checkPalindrome.charAt(innerRight-1)))) {
 
-                //TODO noch mal richtig machen. 
-
-                //searching for identical characters on the first right position
-                if (Character.toLowerCase(this.checkPalindrome.charAt(left)) == Character.toLowerCase(this.checkPalindrome.charAt(right))) {
-
-                    //checking if the next character is also identical with the next character on the right position. 
-                    if (Character.toLowerCase(this.checkPalindrome.charAt(left+1)) == Character.toLowerCase(this.checkPalindrome.charAt(right-1))) {
-
-                        //create a substring from the first letter to the last letter of identical characters
-                        String checkSubString = this.checkPalindrome.substring(left,right);
-
-
-                        // checks all letters of substring - wrong 
-                        int subStringLeft = 0;
-                        int subStringRight = checkSubString.length();
-
-                        while (Character.toLowerCase(checkSubString.charAt(subStringLeft)) == Character.toLowerCase(checkSubString.charAt(subStringRight)) && (left <= right)) {
-                            subStringLeft++;
-                            subStringRight--;
-                        } //while
-
-                        isPalindrome = (left <= right);
+                    if ((innerRight+1-j) > yourPalindrome.length()) {
+                        String checkSubString = this.checkPalindrome.substring(j,innerRight+1);
+                        isPalindrome = validatePalidrome(checkSubString);
 
                         if (isPalindrome) {
-                            foundPalindrome = checkSubString;
+                            yourPalindrome = checkSubString;
                         }
-                    } //if
-                } //if
-            }//for
-        } // for
+                    }
+                }
+            } //for inner
+        } // for outer
 
-        if (isPalindrome) {
-            return foundPalindrome;
-        } else {
-            return "No String found";
-        }
-        //if
+        if (yourPalindrome.length() == 0) {
+            return "Not a Palindrome";
+        } return yourPalindrome;
+
+
     } // method getLongestPalindrom    
+
+    private boolean validatePalidrome(String checkPalindrome) {
+        int left = 0;
+        int right = checkPalindrome.length()-1;
+
+        while (Character.toLowerCase(checkPalindrome.charAt(left)) == Character.toLowerCase(checkPalindrome.charAt(right-left)) && (left < right)) {
+            left++;
+        } //while
+
+        return (left >= right);
+    }
+
+
 
 
     //---------- REGULAR CLASS METHODS ----------
