@@ -192,9 +192,14 @@ public class TestFrameAndStarter {
         // Fügen Sie hier Ihre zusätzlichen Tests ein
         // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
         
-        PalindromeFinder palindrome = new PalindromeFinder("Palindrome?");
-        System.out.println(palindrome.getText());
+        PalindromeFinder palindrome = new PalindromeFinder("a otto b");
+        System.out.printf("Given Sentence is %s\n", palindrome.getText());
         
+        String isPalindrome = palindrome.getLongestPalindrom();
+                
+                System.out.printf("Dein Palindrom %s", isPalindrome);
+        
+              
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }//method()
     
