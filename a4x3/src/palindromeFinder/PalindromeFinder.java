@@ -17,38 +17,33 @@ public class PalindromeFinder {
             this.checkPalindrome = givenWord;
         } //fi
 
-    } //constructor PalindromeFinder
+    } //constructor
 
     // Constructor without parameter
     public PalindromeFinder() {
         this("This is your default not palindrome");
-    }
+    }//constructor
 
 
     //---------- METHODS ----------
     public String getLongestPalindrome() {
-        String yourPalindrome = "";
-        String currentPalindrome = "";
+        String yourPalindrome = "";     //OutputPalindrome
+        String lowerCaseCheckPalindrome = this.checkPalindrome.toLowerCase(); //
+        
 
-        int outerRight = this.checkPalindrome.length()-1;
+        // Outer for-loop moves the left pointer to the right. 
+        int outerRight = this.checkPalindrome.length()-1; //Position of right pointer for outer loop
         boolean isPalindrome=false;
-
         for (int i = 0; i < outerRight; i++) {
-     /*       isPalindrome = validatePalidrome(this.checkPalindrome.substring(i,outerRight+1));
 
-            if (isPalindrome) {
-                currentPalindrome = this.checkPalindrome.substring(i,outerRight+1);
-                
-                if (currentPalindrome.length() > yourPalindrome.length()) {
-                    yourPalindrome = currentPalindrome;
-                }
-            }
-*/
+         // inner for-loop moves the right pointer towards the left pointer 
             int innerRight = this.checkPalindrome.length()-1;
             for (int j = i; j < innerRight; innerRight--) {
 
-                if ((Character.toLowerCase(this.checkPalindrome.charAt(j)) == Character.toLowerCase(this.checkPalindrome.charAt(innerRight))) && (Character.toLowerCase(this.checkPalindrome.charAt(j+1)) == Character.toLowerCase(this.checkPalindrome.charAt(innerRight-1)))) {
+             // checks if letters are the same. 
+                if ((lowerCaseCheckPalindrome.charAt(j) == lowerCaseCheckPalindrome.charAt(innerRight)) && (lowerCaseCheckPalindrome.charAt(j+1) == lowerCaseCheckPalindrome.charAt(innerRight-1))) {
 
+                 // checks if the next letter is also the same.  
                     if ((innerRight+1-j) > yourPalindrome.length()) {
                         String checkSubString = this.checkPalindrome.substring(j,innerRight+1);
                         isPalindrome = validatePalidrome(checkSubString);
