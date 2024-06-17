@@ -31,7 +31,6 @@ public class BankAccount {
         if (this.balance > 0) {
             this.balance = this.balance - amount;
         } //if
-
     } //method withdraw
 
     public void deposit (long amount) {
@@ -42,7 +41,9 @@ public class BankAccount {
     //STANDARD METHODS
     @Override
     public String toString() {
-        return String.format("[BankAccount : BankID = %s \n Balance = %d \n]", this.bankId, this.balance);
+        return String.format("[<%s> : BankID = %s Balance = %d]", BankAccount.class.getSimpleName(), this.bankId, this.balance);
+        //return String.format("[BankAccount : BankID = %s \n Balance = %d \n]", this.bankId, this.balance);
+
     }
 
     public String getAccountId() {

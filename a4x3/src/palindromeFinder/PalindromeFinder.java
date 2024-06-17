@@ -29,21 +29,21 @@ public class PalindromeFinder {
     public String getLongestPalindrome() {
         String yourPalindrome = "";     //OutputPalindrome
         String lowerCaseCheckPalindrome = this.checkPalindrome.toLowerCase(); //
-        
+
 
         // Outer for-loop moves the left pointer to the right. 
         int outerRight = this.checkPalindrome.length()-1; //Position of right pointer for outer loop
         boolean isPalindrome=false;
         for (int i = 0; i < outerRight; i++) {
 
-         // inner for-loop moves the right pointer towards the left pointer 
+            // inner for-loop moves the right pointer towards the left pointer 
             int innerRight = this.checkPalindrome.length()-1;
             for (int j = i; j < innerRight; innerRight--) {
 
-             // checks if letters are the same. 
+                // checks if letters are the same. 
                 if ((lowerCaseCheckPalindrome.charAt(j) == lowerCaseCheckPalindrome.charAt(innerRight)) && (lowerCaseCheckPalindrome.charAt(j+1) == lowerCaseCheckPalindrome.charAt(innerRight-1))) {
 
-                 // checks if the next letter is also the same.  
+                    // checks if the next letter is also the same.  
                     if ((innerRight+1-j) > yourPalindrome.length()) {
                         String checkSubString = this.checkPalindrome.substring(j,innerRight+1);
                         isPalindrome = validatePalidrome(checkSubString);
