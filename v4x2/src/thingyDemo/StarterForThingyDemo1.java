@@ -53,6 +53,8 @@ public class StarterForThingyDemo1 {
         Item someItem = new Item( RED, LARGE, HEAVY, 123L );
         System.out.printf( "%s\n", someItem );
         
+        System.out.printf( "%s\n", someItem.toString() );
+        
         Color colorOfItem = someItem.getColor();
         System.out.printf( "Color:  %s\n", colorOfItem );
         
