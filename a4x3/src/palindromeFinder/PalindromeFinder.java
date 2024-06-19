@@ -32,29 +32,24 @@ public class PalindromeFinder {
 
 
         // Outer for-loop moves the left pointer to the right. 
-        int outerRight = this.checkPalindrome.length()-1; //Position of right pointer for outer loop
-        boolean isPalindrome=false;
-        for (int i = 0; i < outerRight; i++) {
+        int wordLength = this.checkPalindrome.length()-1; //Position of right pointer for outer loop
 
-            // inner for-loop moves the right pointer towards the left pointer 
-            int innerRight = this.checkPalindrome.length()-1;
-            for (int j = i; j < innerRight; innerRight--) {
+        boolean isPalindrome;
 
-                // checks if letters are the same. 
-                if ((lowerCaseCheckPalindrome.charAt(j) == lowerCaseCheckPalindrome.charAt(innerRight)) && (lowerCaseCheckPalindrome.charAt(j+1) == lowerCaseCheckPalindrome.charAt(innerRight-1))) {
+        for (int i = wordLength; i > 0; i--) {
 
-                    // checks if the next letter is also the same.  
-                    if ((innerRight+1-j) > yourPalindrome.length()) {
-                        String checkSubString = this.checkPalindrome.substring(j,innerRight+1);
-                        isPalindrome = validatePalidrome(checkSubString);
+            for (int j = 0; j+i <= wordLength ; j++) {
+                int posl = j;
+                int posr = i+j;
 
-                        if (isPalindrome) {
-                            yourPalindrome = checkSubString;
-                        }
-                    }
+                isPalindrome = validatePalidrome(posl, posr);
+
+                if (isPalindrome) {
+                    yourPalindrome = this.checkPalindrome.substring(posl,posr);
+                    return yourPalindrome;
                 }
-            } //for inner
-        } // for outer
+            }
+        }
 
         if (yourPalindrome.length() == 0) {
             return "Not a Palindrome";
@@ -63,18 +58,16 @@ public class PalindromeFinder {
 
     } // method getLongestPalindrom    
 
-    private boolean validatePalidrome(String checkPalindrome) {
-        int left = 0;
-        int right = checkPalindrome.length()-1;
 
-        while (Character.toLowerCase(checkPalindrome.charAt(left)) == Character.toLowerCase(checkPalindrome.charAt(right-left)) && (left < right)) {
+    private boolean validatePalidrome(int left, int right) {
+
+        while (Character.toLowerCase(checkPalindrome.charAt(left)) == Character.toLowerCase(checkPalindrome.charAt(right)) && (left < right)) {
             left++;
+            right--;
         } //while
 
         return (left >= right);
     }
-
-
 
 
     //---------- REGULAR CLASS METHODS ----------
