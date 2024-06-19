@@ -45,7 +45,7 @@ public class PalindromeFinder {
                 isPalindrome = validatePalidrome(posl, posr);
 
                 if (isPalindrome) {
-                    yourPalindrome = this.checkPalindrome.substring(posl,posr);
+                    yourPalindrome = this.checkPalindrome.substring(posl,posr+1);
                     return yourPalindrome;
                 }
             }
