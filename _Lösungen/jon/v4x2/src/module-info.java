@@ -1,0 +1,2 @@
+module Thingy {
+}//module
